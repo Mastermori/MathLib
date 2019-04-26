@@ -9,7 +9,7 @@ public class Vector2 {
         this.y = y;
     }
 
-    public float length(){
+    public float length() {
         return (float) Math.sqrt(x * x + y * y);
     }
 
@@ -55,8 +55,12 @@ public class Vector2 {
         return x * vec.x + y * vec.y;
     }
 
+    public Vector2 clamp(Vector2 min, Vector2 max) {
+        return new Vector2(x < min.x ? min.x : x > max.x ? max.x : x, y < min.y ? min.y : y > max.y ? max.y : y);
+    }
+
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    protected Vector2 clone() throws CloneNotSupportedException {
         return new Vector2(x, y);
     }
 }

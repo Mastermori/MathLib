@@ -56,4 +56,13 @@ public class Vector3 {
         return x * vec.x + y * vec.y + z * vec.z;
     }
 
+    public Vector3 clamp(Vector3 min, Vector3 max) {
+        return new Vector3(x < min.x ? min.x : x > max.x ? max.x : x, y < min.y ? min.y : y > max.y ? max.y : y, z < min.z ? min.z : z > max.z ? max.z : z);
+    }
+
+    @Override
+    protected Vector3 clone() throws CloneNotSupportedException {
+        return new Vector3(x, y, z);
+    }
+
 }
